@@ -10,17 +10,22 @@ int num;
 
 dataNode[] nodes;
 PImage[] logo;
+Table table;
 
 class dataNode {
   int longitude, lattitude;
   int company;
   int type;
+  String name;
+  int year;
   
-  dataNode(int x, int y, int c, int t) {
-    longitude = x;
-    lattitude = y;
+  dataNode(int lon, int lat, int c, int t, String n, int y) {
+    longitude = lon;
+    lattitude = lat;
     company = c;
     type = t;
+    name = n;
+    year = y;
   }
   
   int getLong() {
@@ -38,6 +43,14 @@ class dataNode {
   int getType() {
     return type;
   }
+  
+  String name() {
+    return name;
+  }
+  
+  int getYear() {
+    return year;
+  }
 }
 
 void setup() {
@@ -47,13 +60,18 @@ void setup() {
   textFont(createFont("Georgia", 16));
   textAlign(CENTER, CENTER);
  
+//  table = loadTable("data.csv", "header");
   nodes = new dataNode[5];
-  nodes[0] = new dataNode(40,400, 0,0);
-  nodes[1] = new dataNode(20, 200, 0, 0);
-  nodes[2] = new dataNode(30, 300, 0, 0);
-  nodes[3] = new dataNode(10, 100, 0, 0);
-  nodes[4] = new dataNode(15, 250, 1, 1);
-  //nodes[5] = new dataNode(100, 25, 1, 1);
+//  for (TableRow row : table.rows()) {
+//    nodes[num] =  new dataNode(row.getInt("longitude"), row.getInt("lattitude"), row.getInt("company"), row.getInt("type"), row.getString("name"), row.getInt("year"));
+//    num++;
+//  }
+  nodes[0] = new dataNode(40, 400, 0,0, "Song of the South", 1941);
+  nodes[1] = new dataNode(20, 200, 0, 0, "Lady and the Tramp", 1955);
+  nodes[2] = new dataNode(30, 300, 0, 0, "Alladin", 1994);
+  nodes[3] = new dataNode(10, 100, 0, 0, "Beauty and the Beast", 1992);
+  nodes[4] = new dataNode(15, 250, 1, 1, "Shrek", 2003);
+  
   
   map = loadImage("map.jpg");
   disneyLogoNode = loadImage("disney.ico");
@@ -89,7 +107,7 @@ void draw() {
 }
 
 //void mousePressed() {
-//  //need later
+//  We'll need this later
 //}
 
 boolean overArea(int x, int y, int width, int height)  {
