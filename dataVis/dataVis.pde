@@ -104,6 +104,10 @@ void draw() {
 
 //void mousePressed() {
 //  We'll need this later
+//  if overArea(tlButtonX, tlButtonY, 15, 30) {
+//    if (mouseRight) {
+//      tlButtonX -= 100
+//
 //}
 
 boolean overArea(int x, int y, int width, int height)  {
