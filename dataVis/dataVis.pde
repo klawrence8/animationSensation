@@ -70,17 +70,26 @@ void draw() {
     //char ethnicity node
     if (node2010s[i].getType() == 0) {
       ellipse(node2010s[i].getLong(), node2010s[i].getLat(), 15, 15);
+      if(overArea(node2010s[i].getLong(), node2010s[i].getLat(), 15, 15)) {
+        fill(50,55,50);
+        text(node2010s[i].name(), node2010s[i].getLong() - 5, node2010s[i].getLat() -5);
+      }
     }
     //origin story node
     else if (node2010s[i].getType() == 1) {
       rect(node2010s[i].getLong(), node2010s[i].getLat(), 15, 15);
+      if(overArea(node2010s[i].getLong(), node2010s[i].getLat(), 15, 15)) {
+        fill(50,50,50);
+        text(node2010s[i].name(), node2010s[i].getLong() - 5, node2010s[i].getLat() -5);
+      }
     } 
     //office node
     else {
       image(logo[node2010s[i].getCompany()], node2010s[i].getLong(), node2010s[i].getLat());
       //ellipse(nodes[i].getLong(), nodes[i].getLat(), 15, 15);
     }
-    text(node2010s[i].name(), node2010s[i].getLong(), node2010s[i].getLat());
+    //text(node2010s[i].name(), node2010s[i].getLong(), node2010s[i].getLat());
+  
   }
   
   }
@@ -90,14 +99,22 @@ void draw() {
       fill(0,0,node2000s[i].getCompany() * 100);
     if (node2000s[i].getType() == 0) {
       ellipse(node2000s[i].getLong(), node2000s[i].getLat(), 15, 15);
+      if(overArea(node2000s[i].getLong(), node2000s[i].getLat(), 15, 15)) {
+        fill(50,50,50);
+        text(node2000s[i].name(), node2000s[i].getLong() - 5, node2000s[i].getLat() -5);
+      }
     }
      else if (node2000s[i].getType() == 1) {
       rect(node2000s[i].getLong(), node2000s[i].getLat(), 15, 15);
+      if(overArea(node2000s[i].getLong(), node2000s[i].getLat(), 15, 15)) {
+        fill(50,50,50);
+        text(node2000s[i].name(), node2000s[i].getLong() - 5, node2000s[i].getLat() -5);
+      }
     } 
     else {
       image(logo[node2000s[i].getCompany()], node2000s[i].getLong(), node2000s[i].getLat());
     }
-    text(node2000s[i].name(), node2000s[i].getLong(), node2000s[i].getLat());
+    //text(node2000s[i].name(), node2000s[i].getLong(), node2000s[i].getLat());
     }
   }//end of 2000 if
 }
