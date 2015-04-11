@@ -56,8 +56,8 @@ void setup() {
 }
 
 void keyPressed(){
-  if(key=='b'){ decade = 2010;}
-  if(key=='a'){ decade = 2000;}
+  if(key=='-'){ decade = 2010;}
+  if(key=='0'){ decade = 2000;}
 }
 
 void draw() {
@@ -117,6 +117,30 @@ void draw() {
     //text(node2000s[i].name(), node2000s[i].getLong(), node2000s[i].getLat());
     }
   }//end of 2000 if
+   if(decade == 1990){
+    dataNode[] node1990s = populate1990s();
+    for(int i =0; i<node1990s.length; i++){
+      fill(0,0,node1990s[i].getCompany() * 100);
+    if (node1990s[i].getType() == 0) {
+      ellipse(node1990s[i].getLong(), node1990s[i].getLat(), 15, 15);
+      if(overArea(node1990s[i].getLong(), node1990s[i].getLat(), 15, 15)) {
+        fill(50,50,50);
+        text(node1990s[i].name(), node1990s[i].getLong() - 5, node1990s[i].getLat() -5);
+      }
+    }
+     else if (node1990s[i].getType() == 1) {
+      rect(node1990s[i].getLong(), node1990s[i].getLat(), 15, 15);
+      if(overArea(node1990s[i].getLong(), node1990s[i].getLat(), 15, 15)) {
+        fill(50,50,50);
+        text(node1990s[i].name(), node1990s[i].getLong() - 5, node1990s[i].getLat() -5);
+      }
+    } 
+    else {
+      image(logo[node1990s[i].getCompany()], node1990s[i].getLong(), node1990s[i].getLat());
+    }
+    //text(node2000s[i].name(), node2000s[i].getLong(), node2000s[i].getLat());
+    }
+  }
 }
 
 //void mousePressed() {
