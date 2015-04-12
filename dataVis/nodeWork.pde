@@ -175,12 +175,12 @@ dataNode[] populate1990s(){
   node1990s[0] = new dataNode(1110, 600, 0, 0, "The Rescuers Down Under", 1990);
   node1990s[1] = new dataNode(623, 245, 0, 0, "Beauty and the Beast", 1991);
   node1990s[2] = new dataNode(628, 240, 0, 1, "Beauty and the Beast", 1991);
-  node1990s[3] = new dataNode(765, 365, 0, 1, "Aladdin", 1992);
-  node1990s[4] = new dataNode(760, 360, 0, 0, "Aladdin", 1992);
+  node1990s[3] = new dataNode(770, 365, 0, 1, "Aladdin", 1992);
+  node1990s[4] = new dataNode(765, 360, 0, 0, "Aladdin", 1992);
   node1990s[5] = new dataNode(600, 203, 0, 1, "The Lion King", 1994);
   node1990s[6] = new dataNode(670, 400, 0, 0, "The Lion King", 1994);
-  node1990s[7] = new dataNode(325, 300, 0, 1, "Pocahontas", 1995);
-  node1990s[8] = new dataNode(320, 305, 0, 0, "Pocahontas", 1995);
+  node1990s[7] = new dataNode(305, 300, 0, 1, "Pocahontas", 1995);
+  node1990s[8] = new dataNode(300, 305, 0, 0, "Pocahontas", 1995);
   node1990s[9] = new dataNode(630, 250, 0, 1, "The Hunchback of Notre Dame", 1996);
   node1990s[10] = new dataNode(630, 240, 0, 0, "The Hunchback of Notre Dame", 1996);
   node1990s[11] = new dataNode(690, 300, 1, 1, "Hercules", 1997);
@@ -192,8 +192,8 @@ dataNode[] populate1990s(){
   //not including fantasia 2000, which was 1999
   
   //dreamworks
-  node1990s[17] = new dataNode(690, 385, 1, 1, "The Prince of Egypt", 1998);
-  node1990s[18] = new dataNode(685, 390, 1, 0, "The Prince of Egypt", 1998);
+  node1990s[17] = new dataNode(715, 355, 1, 1, "The Prince of Egypt", 1998);
+  node1990s[18] = new dataNode(705, 350, 1, 0, "The Prince of Egypt", 1998);
   node1990s[19] = new dataNode(300, 290, 1, 0, "Antz", 1998);
   
   //pixar
@@ -207,14 +207,14 @@ dataNode[] populate1990s(){
 dataNode[] populate1980s(){
   dataNode[] node1980s = new dataNode[10];
   //disney
-  node1980s[0] = new dataNode(315, 290, 0, 0, "The Fox and the Hound", 1981);
-  node1980s[1] = new dataNode(310, 285, 0, 1, "The Fox and the Hound", 1981);
-  node1980s[2] = new dataNode(605, 195, 0, 0, "The Black Cauldron", 1985);
-  node1980s[3] = new dataNode(600, 190, 0, 1, "The Black Cauldron", 1985);
-  node1980s[4] = new dataNode(605, 185, 0, 0, "The Great Mouse Detective", 1986);
-  node1980s[5] = new dataNode(600, 180, 0, 1, "The Great Mouse Detective", 1986);
+  node1980s[0] = new dataNode(307, 290, 0, 0, "The Fox and the Hound", 1981);
+  node1980s[1] = new dataNode(300, 285, 0, 1, "The Fox and the Hound", 1981);
+  node1980s[2] = new dataNode(605, 200, 0, 0, "The Black Cauldron", 1985);
+  node1980s[3] = new dataNode(600, 195, 0, 1, "The Black Cauldron", 1985);
+  node1980s[4] = new dataNode(605, 192, 0, 0, "The Great Mouse Detective", 1986);
+  node1980s[5] = new dataNode(600, 202, 0, 1, "The Great Mouse Detective", 1986);
   node1980s[6] = new dataNode(330, 290, 0, 0, "Oliver & Company", 1988);
-  node1980s[7] = new dataNode(600, 180, 0, 1, "Oliver & Company", 1988);
+  node1980s[7] = new dataNode(600, 188, 0, 1, "Oliver & Company", 1988);
   node1980s[8] = new dataNode(655, 200, 0, 0, "The Little Mermaid", 1989);
   node1980s[9] = new dataNode(650, 195, 0, 1, "The Little Mermaid", 1989);
   return node1980s;
@@ -224,12 +224,12 @@ dataNode[] populate1970s(){
   dataNode[] node1970s = new dataNode[8];
   node1970s[0] = new dataNode(623, 245, 0, 0, "The Aristocats", 1970);
   node1970s[1] = new dataNode(628, 240, 0, 1, "The Aristocats", 1970);
-  node1970s[2] = new dataNode(605, 195, 0, 0, "Robin Hood", 1973);
-  node1970s[3] = new dataNode(600, 190, 0, 1, "Robin Hood", 1973);
-  node1970s[4] = new dataNode(605, 185, 0, 0, "The Many Adventures of Winnie the Pooh", 1977);
-  node1970s[5] = new dataNode(600, 180, 0, 1, "The Many Adventures of Winnie the Pooh", 1977);
-  node1970s[6] = new dataNode(605, 180, 0, 1, "The Rescuers", 1977);
-  node1970s[7] = new dataNode(330, 290, 0, 0, "The Rescuers", 1977);
+  node1970s[2] = new dataNode(605, 203, 0, 0, "Robin Hood", 1973);
+  node1970s[3] = new dataNode(600, 200, 0, 1, "Robin Hood", 1973);
+  node1970s[4] = new dataNode(605, 190, 0, 0, "The Many Adventures of Winnie the Pooh", 1977);
+  node1970s[5] = new dataNode(600, 186, 0, 1, "The Many Adventures of Winnie the Pooh", 1977);
+  node1970s[6] = new dataNode(595, 187, 0, 1, "The Rescuers", 1977);
+  node1970s[7] = new dataNode(330, 296, 0, 0, "The Rescuers", 1977);
   return node1970s;
 }
 
@@ -239,44 +239,44 @@ dataNode[] populate1960s(){
   node1960s[1] = new dataNode(600, 205, 0, 1, "One Hundred and One Dalmatians", 1961);
   node1960s[2] = new dataNode(605, 205, 0, 0, "The Sword in the Stone", 1963);
   node1960s[3] = new dataNode(600, 195, 0, 1, "The Sword in the Stone", 1963);
-  node1960s[4] = new dataNode(850, 335, 0, 0, "The Jungle Book", 1967);
-  node1960s[5] = new dataNode(855, 340, 0, 1, "The Jungle Book", 1967);
+  node1960s[4] = new dataNode(895, 375, 0, 0, "The Jungle Book", 1967);
+  node1960s[5] = new dataNode(900, 375, 0, 1, "The Jungle Book", 1967);
   return node1960s;
 }
 
 dataNode[] populate1950s(){
   dataNode[] node1950s = new dataNode[10];
-  node1950s[0] = new dataNode(615, 233, 0, 1, "Cinderella", 1950);
-  node1950s[1] = new dataNode(623, 245, 0, 0, "Cinderella", 1950);
+  node1950s[0] = new dataNode(635, 233, 0, 1, "Cinderella", 1950);
+  node1950s[1] = new dataNode(633, 245, 0, 0, "Cinderella", 1950);
   node1950s[2] = new dataNode(605, 195, 0, 0, "Alice in Wonderland", 1951);
   node1950s[3] = new dataNode(600, 200, 0, 1, "Alice in Wonderland", 1951);
   node1950s[4] = new dataNode(600, 190, 0, 1, "Peter Pan", 1953);
   node1950s[5] = new dataNode(605, 200, 0, 0, "Peter Pan", 1953);
   //lady and tramp was a book!
-  node1950s[6] = new dataNode(280, 315, 0, 1, "Lady and the Tramp", 1955);
-  node1950s[7] = new dataNode(270, 320, 0, 0, "Lady and the Tramp", 1955);
-  node1950s[8] = new dataNode(605, 240, 0, 1, "Sleeping Beauty", 1959);
-  node1950s[9] = new dataNode(600, 245, 0, 0, "Sleeping Beauty", 1959);
+  node1950s[6] = new dataNode(280, 300, 0, 1, "Lady and the Tramp", 1955);
+  node1950s[7] = new dataNode(270, 305, 0, 0, "Lady and the Tramp", 1955);
+  node1950s[8] = new dataNode(625, 240, 0, 1, "Sleeping Beauty", 1959);
+  node1950s[9] = new dataNode(620, 245, 0, 0, "Sleeping Beauty", 1959);
   return node1950s;
 }
 
 dataNode[] populate1940s(){
   dataNode[] node1940s = new dataNode[6];
   //bambi was an austrian book, adapted to america
-  node1940s[0] = new dataNode(630, 215, 0, 1, "Bambi", 1942);
+  node1940s[0] = new dataNode(640, 200, 0, 1, "Bambi", 1942);
   node1940s[1] = new dataNode(300, 290, 0, 0, "Bambi", 1942);
-  node1940s[2] = new dataNode(310, 310, 0, 1, "Dumbo", 1941);
+  node1940s[2] = new dataNode(300, 310, 0, 1, "Dumbo", 1941);
   node1940s[3] = new dataNode(305, 315, 0, 0, "Dumbo", 1941);
-  node1940s[4] = new dataNode(675, 290, 0, 1, "Pinocchio", 1940);
-  node1940s[5] = new dataNode(675, 285, 0, 0, "Pinocchio", 1940);
+  node1940s[4] = new dataNode(680, 280, 0, 1, "Pinocchio", 1940);
+  node1940s[5] = new dataNode(680, 275, 0, 0, "Pinocchio", 1940);
   //war films? fantasia?
   return node1940s;
 }
 
 dataNode[] populate1930s(){
   dataNode[] node1930s = new dataNode[2];
-  node1930s[0] = new dataNode(615, 233, 0, 1, "Snow White and the Seven Dwarfs", 1937);
-  node1930s[1] = new dataNode(605, 240, 0, 0, "Snow White and the Seven Dwarfs", 1937);
+  node1930s[0] = new dataNode(635, 233, 0, 1, "Snow White and the Seven Dwarfs", 1937);
+  node1930s[1] = new dataNode(630, 240, 0, 0, "Snow White and the Seven Dwarfs", 1937);
   return node1930s;
 }
   
