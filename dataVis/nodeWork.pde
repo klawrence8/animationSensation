@@ -1,3 +1,4 @@
+
 class dataNode {
   int longitude, lattitude;
   int company;
@@ -42,11 +43,6 @@ class dataNode {
 dataNode[] populate2010s(){
 //  table = loadTable("data.csv", "header");
   dataNode[] node2010s = new dataNode[40];
-//  for (TableRow row : table.rows()) {
-//    nodes[num] =  new dataNode(row.getInt("longitude"), row.getInt("lattitude"), row.getInt("company"), row.getInt("type"), row.getString("name"), row.getInt("year"));
-//    num++;
-//  }
-
 // COMPANY
 // 0 = disney
 // 1 = dreamworks
@@ -62,9 +58,9 @@ dataNode[] populate2010s(){
   node2010s[0] = new dataNode(170,280,0,0, "Big Hero 6", 2014);
   node2010s[1] = new dataNode(1120,290,0,1, "Big Hero 6", 2014);
   node2010s[2] = new dataNode(650, 180, 0, 0, "Frozen", 2013);
-node2010s[3] = new dataNode(655, 185, 0, 1, "Frozen", 2013);
+  node2010s[3] = new dataNode(655, 185, 0, 1, "Frozen", 2013);
   node2010s[4] = new dataNode(240, 275, 0, 0, "Wreck-It Ralph", 2012);
- node2010s[5] = new dataNode(235, 270, 0, 1, "Wreck-It Ralph", 2012);
+  node2010s[5] = new dataNode(235, 270, 0, 1, "Wreck-It Ralph", 2012);
   node2010s[6] = new dataNode(620, 230, 0, 0, "Tangled", 2010);
   node2010s[7] = new dataNode(615, 233, 0, 1, "Tangled", 2010);
   //how to train your dragon was a book so it does have an origin
@@ -102,7 +98,7 @@ node2010s[3] = new dataNode(655, 185, 0, 1, "Frozen", 2013);
   node2010s[37] = new dataNode(1132, 265, 2, 1, "Cars 2", 2011);
   node2010s[38] = new dataNode(600, 190, 2, 0, "Brave", 2012);
   node2010s[39] = new dataNode(605, 195, 2, 1, "Brave", 2012);
- // node2010s[40] = new dataNode(400, 400, 2, 0, "Monster's University", 2013);
+  //node2010s[40] = new dataNode(400, 400, 2, 0, "Monster's University", 2013);
   //node2010s[41] = new dataNode(410, 419, 2, 1, "Monster's University", 2013);
   
   
