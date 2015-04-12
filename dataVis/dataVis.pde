@@ -174,38 +174,47 @@ void draw() {
   if (tens) {
     dataNode[] node2010s = populate2010s();
     drawDecade(node2010s);
+    drawLinks(node2010s);
   }
   if (noughties) {
     dataNode[] node2000s = populate2000s();
     drawDecade(node2000s);
+    drawLinks(node2000s);
   }//end of 2000 if
   if (ninties) {
     dataNode[] node1990s = populate1990s();
     drawDecade(node1990s);
+    drawLinks(node1990s);
   }
   if (eighties) {
     dataNode[] node1980s = populate1980s();
     drawDecade(node1980s);
+    drawLinks(node1980s);
   }
   if (seventies) {
     dataNode[] node1970s = populate1970s();
     drawDecade(node1970s);
+    drawLinks(node1970s);
   }
   if (sixties) {
     dataNode[] node1960s = populate1960s();
     drawDecade(node1960s);
+    drawLinks(node1960s);
   }
   if (fifties) {
     dataNode[] node1950s = populate1950s();
     drawDecade(node1950s);
+    drawLinks(node1950s);
   }
   if (forties) {
     dataNode[] node1940s = populate1940s();
     drawDecade(node1940s);
+    drawLinks(node1940s);
   }
   if (thirties) {
     dataNode[] node1930s = populate1930s();
     drawDecade(node1930s);
+    drawLinks(node1930s);
   }
 }
 
@@ -227,6 +236,28 @@ void drawDecade(dataNode[] list) {
       }
     }
   }
+}
+
+void drawLinks(dataNode[] list){
+  for(int i=0; i< list.length; i++){
+    stroke(100,100,255);
+    strokeWeight(2.5);
+    if(list[i].getOrigin()!=null){
+      dataNode org = list[i].getOrigin();
+      pushMatrix();
+      translate(getMid(list[i].getLong(), org.getLong()), getMid(list[i].getLat(), org.getLat()));
+      float a = atan2(list[i].getLong()-org.getLong(), org.getLat()-list[i].getLat());
+      rotate(a);
+      line(0, 0, -5, -5);
+      line(0, 0, 5, -5);
+      popMatrix();
+      line(list[i].getLong(), list[i].getLat(), org.getLong(), org.getLat());
+    }
+  }
+}
+
+float getMid(float x1, float x2){
+  return((x1+x2)/2.0);
 }
 
 //void mousePressed() {
