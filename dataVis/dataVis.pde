@@ -223,16 +223,18 @@ void drawDecade(dataNode[] list) {
     fill(0,0,list[i].getCompany() * 100);
     //char ethnicity node
     if (list[i].getType() == 0) {
-      ellipse(list[i].getLong(), list[i].getLat(), 15, 15);
-      if(overArea(list[i].getLong(), list[i].getLat(), 15, 15)) {
+      ellipse(list[i].getLong(), list[i].getLat(), 5, 5);
+      if(overArea(list[i].getLong(), list[i].getLat(), 5, 5)) {
+        ellipse(list[i].getLong(), list[i].getLat(), 15, 15);
         fill(50,55,50);
-        text(list[i].name(), list[i].getLong() - 5, list[i].getLat() -5);
+        //text(list[i].name(), list[i].getLong() - 5, list[i].getLat() -5);
       }
     } else {
-      rect(list[i].getLong(), list[i].getLat(), 15, 15);
-      if(overArea(list[i].getLong(), list[i].getLat(), 15, 15)) {
+      rect(list[i].getLong(), list[i].getLat(), 5, 5);
+      if(overArea(list[i].getLong(), list[i].getLat(), 5, 5)) {
+        rect(list[i].getLong(), list[i].getLat(), 15, 15);
         fill(50,50,50);
-        text(list[i].name(), list[i].getLong() - 5, list[i].getLat() -5);
+        //text(list[i].name(), list[i].getLong() - 5, list[i].getLat() -5);
       }
     }
   }
@@ -240,10 +242,16 @@ void drawDecade(dataNode[] list) {
 
 void drawLinks(dataNode[] list){
   for(int i=0; i< list.length; i++){
-    stroke(100,100,255);
-    strokeWeight(2.5);
-    if(list[i].getOrigin()!=null){
-      dataNode org = list[i].getOrigin();
+    dataNode org = list[i].getOrigin();
+    if(overArea(list[i].getLong(), list[i].getLat(), 5, 5) || (org != null && overArea(org.getLong(), org.getLat(), 5, 5))) {
+      stroke(100,100,255);
+      strokeWeight(2.5);
+    } else {
+      stroke(100,100,100);
+      strokeWeight(1);
+    }
+    if(org!=null){
+      //dataNode org = list[i].getOrigin();
       pushMatrix();
       translate(getMid(list[i].getLong(), org.getLong()), getMid(list[i].getLat(), org.getLat()));
       float a = atan2(list[i].getLong()-org.getLong(), org.getLat()-list[i].getLat());
