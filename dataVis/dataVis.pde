@@ -12,15 +12,15 @@ color bg;
 color c;
 boolean thirties, forties, fifties, sixties, seventies, eighties, ninties, noughties, tens;
 
-dataNode[] node2010s;
-dataNode[] node2000s;
-dataNode[] node1990s;
-dataNode[] node1980s;
-dataNode[] node1970s;
-dataNode[] node1960s;
-dataNode[] node1950s;
-dataNode[] node1940s;
-dataNode[] node1930s;
+ArrayList<dataNode> node2010s;
+ArrayList<dataNode> node2000s;
+ArrayList<dataNode> node1990s;
+ArrayList<dataNode> node1980s;
+ArrayList<dataNode> node1970s;
+ArrayList<dataNode> node1960s;
+ArrayList<dataNode> node1950s;
+ArrayList<dataNode> node1940s;
+ArrayList<dataNode> node1930s;
 
 int mode;
 //0 = disney
@@ -172,94 +172,108 @@ void draw() {
   
   image(map, 0, 0);
   if (tens) {
-    dataNode[] node2010s = populate2010s();
+    ArrayList<dataNode> node2010s = populate2010s();
     drawDecade(node2010s);
     drawLinks(node2010s);
   }
   if (noughties) {
-    dataNode[] node2000s = populate2000s();
+    ArrayList<dataNode> node2000s = populate2000s();
     drawDecade(node2000s);
     drawLinks(node2000s);
   }//end of 2000 if
   if (ninties) {
-    dataNode[] node1990s = populate1990s();
+    ArrayList<dataNode> node1990s = populate1990s();
     drawDecade(node1990s);
     drawLinks(node1990s);
   }
   if (eighties) {
-    dataNode[] node1980s = populate1980s();
+    ArrayList<dataNode> node1980s = populate1980s();
     drawDecade(node1980s);
     drawLinks(node1980s);
   }
   if (seventies) {
-    dataNode[] node1970s = populate1970s();
+    ArrayList<dataNode> node1970s = populate1970s();
     drawDecade(node1970s);
     drawLinks(node1970s);
   }
   if (sixties) {
-    dataNode[] node1960s = populate1960s();
+    ArrayList<dataNode> node1960s = populate1960s();
     drawDecade(node1960s);
     drawLinks(node1960s);
   }
   if (fifties) {
-    dataNode[] node1950s = populate1950s();
+    ArrayList<dataNode> node1950s = populate1950s();
     drawDecade(node1950s);
     drawLinks(node1950s);
   }
   if (forties) {
-    dataNode[] node1940s = populate1940s();
+    ArrayList<dataNode> node1940s = populate1940s();
     drawDecade(node1940s);
     drawLinks(node1940s);
   }
   if (thirties) {
-    dataNode[] node1930s = populate1930s();
+    ArrayList<dataNode> node1930s = populate1930s();
     drawDecade(node1930s);
     drawLinks(node1930s);
   }
 }
 
-void drawDecade(dataNode[] list) {
-  for (int i = 0; i < list.length; i++) {
-    fill(0,0,list[i].getCompany() * 100);
+void drawDecade(ArrayList<dataNode> list) {
+  for (int i = 0; i < list.size(); i++) {
+    fill(0,0,list.get(i).getCompany() * 100);
     //char ethnicity node
-    if (list[i].getType() == 0) {
-      ellipse(list[i].getLong(), list[i].getLat(), 5, 5);
-      if(overArea(list[i].getLong(), list[i].getLat(), 5, 5)) {
-        ellipse(list[i].getLong(), list[i].getLat(), 15, 15);
+    if (list.get(i).getType() == 0 && list.get(i).getOrigin()==null) {
+      ellipse(list.get(i).getLong(), list.get(i).getLat(), 5, 5);
+      if(overArea(list.get(i).getLong(), list.get(i).getLat(), 5, 5)) {
+        ellipse(list.get(i).getLong(), list.get(i).getLat(), 15, 15);
         fill(50,55,50);
         //text(list[i].name(), list[i].getLong() - 5, list[i].getLat() -5);
       }
-    } else {
-      rect(list[i].getLong(), list[i].getLat(), 5, 5);
-      if(overArea(list[i].getLong(), list[i].getLat(), 5, 5)) {
-        rect(list[i].getLong(), list[i].getLat(), 15, 15);
+    } else if (list.get(i).getType()==1 || (list.get(i).getType()==0 && list.get(i).getOrigin()!=null)) {
+      rect(list.get(i).getLong(), list.get(i).getLat(), 5, 5);
+      if(overArea(list.get(i).getLong(), list.get(i).getLat(), 5, 5)) {
+        rect(list.get(i).getLong(), list.get(i).getLat(), 15, 15);
         fill(50,50,50);
         //text(list[i].name(), list[i].getLong() - 5, list[i].getLat() -5);
       }
+    }else{
+       triangle(list.get(i).getLong()-5, list.get(i).getLat()+5,
+           list.get(i).getLong(), list.get(i).getLat()-5,
+           list.get(i).getLong()+5, list.get(i).getLat()+5);
+      if(overArea(list.get(i).getLong(), list.get(i).getLat(), 5, 5)) {
+        triangle(list.get(i).getLong()-10, list.get(i).getLat()+10,
+           list.get(i).getLong(), list.get(i).getLat()-10,
+           list.get(i).getLong()+10, list.get(i).getLat()+10);
+        fill(50,50,50);
+        //text(list[i].name(), list[i].getLong() - 5, list[i].getLat() -5);
     }
   }
 }
+}
 
-void drawLinks(dataNode[] list){
-  for(int i=0; i< list.length; i++){
-    dataNode org = list[i].getOrigin();
-    if(overArea(list[i].getLong(), list[i].getLat(), 5, 5) || (org != null && overArea(org.getLong(), org.getLat(), 5, 5))) {
+void drawLinks(ArrayList<dataNode> list){
+  for(int i=0; i< list.size(); i++){
+    dataNode org = list.get(i).getOrigin();
+    if(overArea(list.get(i).getLong(), list.get(i).getLat(), 5, 5) || 
+      (org != null && overArea(org.getLong(), org.getLat(), 5, 5))
+      || (list.get(i).getType()==2)) {
       stroke(100,100,255);
       strokeWeight(2.5);
     } else {
       stroke(100,100,100);
       strokeWeight(1);
     }
-    if(org!=null){
+    if(org!=null && list.get(i).getType()!=2){
       //dataNode org = list[i].getOrigin();
-      pushMatrix();
-      translate(getMid(list[i].getLong(), org.getLong()), getMid(list[i].getLat(), org.getLat()));
-      float a = atan2(list[i].getLong()-org.getLong(), org.getLat()-list[i].getLat());
-      rotate(a);
+      pushMatrix(); 
+      //translate(getMid(list.get(i).getLong(), org.getLong()), getMid(list.get(i).getLat(), org.getLat()));
+      translate(getMid(org.getLong(), list.get(i).getLong()), getMid(org.getLat(), list.get(i).getLat()));
+      float a = atan2(list.get(i).getLong()-org.getLong(), org.getLat()-list.get(i).getLat());
+      rotate(a+3.14159265);
       line(0, 0, -5, -5);
       line(0, 0, 5, -5);
       popMatrix();
-      line(list[i].getLong(), list[i].getLat(), org.getLong(), org.getLat());
+      line(list.get(i).getLong(), list.get(i).getLat(), org.getLong(), org.getLat());
     }
   }
 }
