@@ -354,7 +354,7 @@ void drawDecade(ArrayList<dataNode> list) {
       noStroke();
       ellipse(list.get(i).getLong(), list.get(i).getLat(), 5, 5);
       if(overArea(list.get(i).getLong(), list.get(i).getLat(), 5, 5)) {
-        stroke(253, 253, 0);
+        //stroke(253, 253, 0);
         ellipse(list.get(i).getLong(), list.get(i).getLat(), 15, 15);
         fill(50,55,50);
         textSize(25);
@@ -374,7 +374,7 @@ void drawDecade(ArrayList<dataNode> list) {
            list.get(i).getLong(), list.get(i).getLat()-5,
            list.get(i).getLong()+5, list.get(i).getLat()+5);
       if(overArea(list.get(i).getLong(), list.get(i).getLat(), 5, 5)) {
-        stroke(253, 253, 0);
+        //stroke(253, 253, 0);
         triangle(list.get(i).getLong()-10, list.get(i).getLat()+10,
            list.get(i).getLong(), list.get(i).getLat()-10,
            list.get(i).getLong()+10, list.get(i).getLat()+10);
@@ -411,6 +411,7 @@ void drawLinks(ArrayList<dataNode> list){
       line(list.get(i).getLong(), list.get(i).getLat(), org.getLong(), org.getLat());
     }
   }
+  noStroke();
 }
 
 float getMid(float x1, float x2){
