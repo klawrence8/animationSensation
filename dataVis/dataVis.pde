@@ -12,6 +12,8 @@ color bg;
 color c;
 boolean thirties, forties, fifties, sixties, seventies, eighties, ninties, noughties, tens;
 
+int[] sprockets;
+
 ArrayList<dataNode> node2010s;
 ArrayList<dataNode> node2000s;
 ArrayList<dataNode> node1990s;
@@ -134,6 +136,12 @@ void setup() {
   p81 = loadImage("p81.png");
   p82 = loadImage("p82.png");
    
+//create sprockets y pos
+  sprockets = new int[30];
+  for (int i = 0; i < 30; i++) {
+    sprockets[i] = i*30;
+  }
+  
   bg = 255;
   c = color(0);
 }
@@ -216,6 +224,13 @@ void draw() {
     drawDecade(node1930s);
     drawLinks(node1930s);
   }
+  fill(0);
+  noStroke();
+  rect(1230, 0, 150, 700);
+  fill(255);
+  for (int i = 0; i < 30; i++) {
+    rect(1233, sprockets[i], 15, 15, 5);
+  }
 }
 
 void drawDecade(ArrayList<dataNode> list) {
@@ -223,8 +238,10 @@ void drawDecade(ArrayList<dataNode> list) {
     fill(0,0,list.get(i).getCompany() * 100);
     //char ethnicity node
     if (list.get(i).getType() == 0 && list.get(i).getOrigin()==null) {
+      noStroke();
       ellipse(list.get(i).getLong(), list.get(i).getLat(), 5, 5);
       if(overArea(list.get(i).getLong(), list.get(i).getLat(), 5, 5)) {
+        stroke(253, 253, 0);
         ellipse(list.get(i).getLong(), list.get(i).getLat(), 15, 15);
         fill(50,55,50);
         //text(list[i].name(), list[i].getLong() - 5, list[i].getLat() -5);
@@ -237,10 +254,12 @@ void drawDecade(ArrayList<dataNode> list) {
         //text(list[i].name(), list[i].getLong() - 5, list[i].getLat() -5);
       }
     }else{
-       triangle(list.get(i).getLong()-5, list.get(i).getLat()+5,
+      noStroke();
+      triangle(list.get(i).getLong()-5, list.get(i).getLat()+5,
            list.get(i).getLong(), list.get(i).getLat()-5,
            list.get(i).getLong()+5, list.get(i).getLat()+5);
       if(overArea(list.get(i).getLong(), list.get(i).getLat(), 5, 5)) {
+        stroke(253, 253, 0);
         triangle(list.get(i).getLong()-10, list.get(i).getLat()+10,
            list.get(i).getLong(), list.get(i).getLat()-10,
            list.get(i).getLong()+10, list.get(i).getLat()+10);
