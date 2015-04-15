@@ -6,13 +6,16 @@ PImage fs;
 PImage p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30,p31,p32,p33,p34,p35,p36,p37,p38,p39,p40;
 PImage p41,p42,p43,p44,p45,p46,p47,p48,p49,p50,p51,p52,p53,p54,p55,p56,p57,p58,p59,p60,p61,p62,p63,p64,p65,p66,p67,p68,p69,p70,p71,p72,p73,p74,p75,p76,p77,p78,p79,p80;
 PImage p81, p82, p83;
-
+PImage titleScreen;
 
 color bg;
 color c;
 boolean thirties, forties, fifties, sixties, seventies, eighties, ninties, noughties, tens;
 
+boolean title;
+
 int[] sprockets;
+
 
 ArrayList<dataNode> node2010s;
 ArrayList<dataNode> node2000s;
@@ -29,6 +32,8 @@ int mode;
 //1 = dreamworks
 //2 = pixar
 
+slider slide;
+
 
 
 void setup() {
@@ -38,8 +43,8 @@ void setup() {
   fill(0);
   textFont(createFont("Georgia", 16));
   textAlign(CENTER, CENTER);
- 
-
+  title = true;
+  titleScreen = loadImage("title.png");
   map = loadImage("map.jpg");
 //  disneyLogoNode = loadImage("disney.ico");
 //  disneyStoryNode = loadImage("disneyStory.png");
@@ -144,8 +149,11 @@ void setup() {
   
   bg = 255;
   c = color(0);
+  
+  slide = new slider(318, 318+50, 630, 630+30, 10, 50, 30);
+ 
 }
-
+/*
 void keyPressed(){
   if(key=='-') {
     tens = !(tens);
@@ -174,11 +182,85 @@ void keyPressed(){
   if(key=='3') {
     thirties = !(thirties);
   }
+}*/
+
+void keyPressed(){
+  if(key==CODED){
+    if(keyCode==RIGHT){
+      title = false;
+    }
+  }
+}
+
+void mouseDragged(){
+  //drag slider
+  if(mouseX > slide.getLeft() && mouseX < slide.getRight() && mouseY > slide.getTop() && mouseY < slide.getBot()){
+    
+      float newLeft = slide.getLeft() + (mouseX-pmouseX);
+      float newRight = slide.getRight() + (mouseX-pmouseX);
+      if(newLeft>318 && newRight<920){
+        slide.setLeft(newLeft);
+        slide.setRight(newRight);
+      }
+    }
+    //switch decades according to location of slider
+    //okay these are definitely not exact but yknow what it works
+    
+    float left = slide.getLeft(); float right = slide.getRight();
+    if(left >= 318 && right < 380){ 
+      thirties = true;
+      forties = false;
+    }
+    if(left >= 380 && right < 451){
+      forties = true;
+      thirties = false;
+      fifties = false;
+    }
+    if(left >= 451 && right < 517.5){
+      fifties = true;
+      forties = false;
+      sixties = false;
+    }
+    if(left >= 517.5 && right < 584){
+      sixties = true;
+      seventies = false;
+      fifties = false;
+    }
+    if(left >=584 && right < 650.5){
+      seventies = true;
+      sixties = false;
+      eighties = false;
+    }
+    if(left >=650.5 && right < 717){
+      eighties = true;
+      seventies = false;
+      ninties = false;
+    }
+    if(left >=717 && right < 783.5){
+      ninties =true;
+      eighties = false;
+      noughties = false;
+    }
+    if(left >= 783.5 && right < 850){
+      noughties = true;
+      ninties = false;
+      tens = false;
+    }
+    if(left >=850 && right < 920) {
+      tens = true;
+      noughties = false;
+    }
+    
+  
 }
 
 void draw() {
+  if(title){
+    image(titleScreen, 0, 0);
+  }else{
   
   image(map, 0, 0);
+  
   if (tens) {
     ArrayList<dataNode> node2010s = populate2010s();
     drawDecade(node2010s);
@@ -224,12 +306,43 @@ void draw() {
     drawDecade(node1930s);
     drawLinks(node1930s);
   }
+  
   fill(0);
   noStroke();
   rect(1230, 0, 150, 700);
   fill(255);
   for (int i = 0; i < 30; i++) {
     rect(1233, sprockets[i], 15, 15, 5);
+  }
+  //draw text field at top
+  fill(200, 200, 255, 150);
+  noStroke();
+  rect(0, 0, 1230, 50);
+  //draw slider base bar near bottom
+  fill(200, 200, 255, 230);
+  rect(315, 640, 610, 10, 50);
+  
+  /* //draw actual slider
+  fill(180, 180, 255);
+  stroke(160, 160, 255);
+  rect(318, 630, 50, 30, 10);
+  */
+  fill(180, 180, 255);
+  stroke(160, 160, 255);
+  rect(slide.getLeft(), slide.getTop(), slide.getWidth(), slide.getHeight());
+  
+  //date text
+  textSize(18);
+  fill(0);
+  text("1930s", 350, 640);
+  text("1940s", 416.25, 640);
+  text("1950s", 482.5, 640);
+  text("1960s", 548.75, 640);
+  text("1970s", 615, 640);
+  text("1980s", 681.25, 640);
+  text("1990s", 747.5, 640);
+  text("2000s", 813.75, 640);
+  text("2010s", 880, 640);
   }
 }
 
@@ -244,14 +357,16 @@ void drawDecade(ArrayList<dataNode> list) {
         stroke(253, 253, 0);
         ellipse(list.get(i).getLong(), list.get(i).getLat(), 15, 15);
         fill(50,55,50);
-        //text(list[i].name(), list[i].getLong() - 5, list[i].getLat() -5);
+        textSize(25);
+        text(list.get(i).name(), 615, 25);
       }
     } else if (list.get(i).getType()==1 || (list.get(i).getType()==0 && list.get(i).getOrigin()!=null)) {
       rect(list.get(i).getLong(), list.get(i).getLat(), 5, 5);
       if(overArea(list.get(i).getLong(), list.get(i).getLat(), 5, 5)) {
         rect(list.get(i).getLong(), list.get(i).getLat(), 15, 15);
         fill(50,50,50);
-        //text(list[i].name(), list[i].getLong() - 5, list[i].getLat() -5);
+        textSize(25);
+        text(list.get(i).name(), 615, 25);
       }
     }else{
       noStroke();
@@ -264,7 +379,8 @@ void drawDecade(ArrayList<dataNode> list) {
            list.get(i).getLong(), list.get(i).getLat()-10,
            list.get(i).getLong()+10, list.get(i).getLat()+10);
         fill(50,50,50);
-        //text(list[i].name(), list[i].getLong() - 5, list[i].getLat() -5);
+               textSize(25);
+        text(list.get(i).name(), 615, 25);
     }
   }
 }

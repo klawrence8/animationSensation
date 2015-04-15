@@ -64,29 +64,29 @@ ArrayList<dataNode> node2010s = new ArrayList<dataNode>();
 //~350 is the equator
 //populate nodes
 
-  dataNode bh6Org = new dataNode(1120,290,0, 1, "Big Hero 6", 2014, null);
+  dataNode bh6Org = new dataNode(1130,290,0, 1, "Big Hero 6", 2014, null);
   dataNode bh6 = new dataNode(170,280, 0, 0, "Big Hero 6", 2014, bh6Org);
   dataNode frozen = new dataNode(655, 185, 0, 2, "Frozen", 2013, null);
   dataNode wreckit = new dataNode(235, 270, 0, 2, "Wreck-It Ralph", 2012, null);
-  dataNode tangled = new dataNode(615, 233, 0, 2, "Tangled", 2010, null);
+  dataNode tangled = new dataNode(658, 225, 0, 2, "Tangled", 2010, null);
   //how to train your dragon was a book so it does have an origin
   dataNode dragon = new dataNode(680, 165, 1, 2, "How to Train Your Dragon", 2010, null);
-  dataNode shrek4Org = new dataNode(633, 238, 1, 1, "Shrek Forever After", 2010, null);
+  dataNode shrek4Org = new dataNode(660, 245, 1, 1, "Shrek Forever After", 2010, null);
   dataNode shrek4 = new dataNode(600, 200, 1, 0, "Shrek Forever After", 2010, shrek4Org);
-  dataNode mega = new dataNode(330, 290, 2, 0, "Megamind", 2010, null);
+  dataNode mega = new dataNode(327, 290, 2, 0, "Megamind", 2010, null);
   dataNode panda2 = new dataNode(1010, 325, 1, 0, "Kung Fu Panda 2", 2011, null);
-  dataNode puss = new dataNode(625, 235, 1, 2, "Puss in Boots", 2011, null);
+  dataNode puss = new dataNode(645, 245, 1, 2, "Puss in Boots", 2011, null);
   dataNode mad3 = new dataNode(615, 245, 1, 0, "Madagascar 3", 2012, null);
-  dataNode riseOrg = new dataNode(628, 210, 0, 1, "Rise of the Guardians", 2012, null);
+  dataNode riseOrg = new dataNode(670, 225, 0, 1, "Rise of the Guardians", 2012, null);
   dataNode rise = new dataNode(210, 315, 2, 0, "Rise of the Guardians", 2012, riseOrg);
   dataNode croods = new dataNode(300, 300, 1, 0, "The Croods", 2013, null);
   dataNode turbo = new dataNode(175, 270, 1, 0, "Turbo", 2013, null);
   //peabody and sherman based off rocky and bullwinkle characters from 1960s america (minnesota)
-  dataNode peabod = new dataNode(315, 287, 1, 2, "Mr. Peabody and Sherman", 2014, null);
+  dataNode peabod = new dataNode(315, 280, 1, 2, "Mr. Peabody and Sherman", 2014, null);
   dataNode dragon2 = new dataNode(695, 165, 1, 2, "How to Train Your Dragon 2", 2015, null);
-  dataNode penguins = new dataNode(675, 285, 1, 0, "Penguins of Madagascar", 2015, null);
+  dataNode penguins = new dataNode(670, 280, 1, 0, "Penguins of Madagascar", 2015, null);
   //home is based on an american book (2007), takes place in florida
-  dataNode home = new dataNode(300, 330, 1, 2, "Home", 2015, null);
+  dataNode home = new dataNode(305, 335, 1, 2, "Home", 2015, null);
   dataNode toy3 = new dataNode(200, 295, 2, 0, "Toy Story 3", 2010, null);
   dataNode cars2 = new dataNode(1140, 270, 2, 0, "Cars 2", 2011, null);
   dataNode brave = new dataNode(600, 190, 2, 0, "Brave", 2012, null);
@@ -118,13 +118,13 @@ ArrayList<dataNode> node2010s = new ArrayList<dataNode>();
 
 ArrayList<dataNode> populate2000s(){
   ArrayList<dataNode> node2000s = new ArrayList<dataNode>();
-  dataNode empOrg = new dataNode(650, 200, 0, 1, "The Emperor's New Groove", 2000, null);
-  dataNode emp = new dataNode(340, 540, 0, 0, "The Emperor's New Groove", 2000, empOrg);
-  dataNode lilo = new dataNode(30, 370, 0, 0, "Lilo and Stitch", 2001, null);
+  dataNode empOrg = new dataNode(670, 223, 0, 1, "The Emperor's New Groove", 2000, null);
+  dataNode emp = new dataNode(345, 545, 0, 0, "The Emperor's New Groove", 2000, empOrg);
+  dataNode lilo = new dataNode(30, 373, 0, 0, "Lilo and Stitch", 2001, null);
   //should we do dinosaur??
   //atlantis??
-  dataNode treasOrg = new dataNode(600, 210, 0, 1, "Treasure Planet", 2002, null);
-  dataNode treas = new dataNode(1250, 20, 0, 0, "Treasure Planet", 2002, treasOrg);
+  dataNode treasOrg = new dataNode(600, 222, 0, 1, "Treasure Planet", 2002, null);
+    dataNode treas = new dataNode(1190, 20, 0, 0, "Treasure Planet", 2002, treasOrg);
   dataNode bear = new dataNode(38, 125, 0, 0, "Brother Bear", 2003, null);
   dataNode range = new dataNode(180, 270, 0, 0, "Home on the Range", 2004, null);
   //chicken little??
@@ -144,20 +144,20 @@ ArrayList<dataNode> populate2000s(){
   dataNode doradoOrg = new dataNode(375, 450, 1, 1, "The Road to El Dorado", 2000, null);
   dataNode dorado = new dataNode(590, 285, 1, 0, "The Road to El Dorado", 2000, doradoOrg);
   dataNode chickenRun = new dataNode(590, 200, 1, 0, "Chicken Run", 2000, null);
-  dataNode shrekOrg = new dataNode(625, 229, 1, 1, "Shrek", 2001, null);
-  dataNode shrek = new dataNode(605, 200, 1, 0, "Shrek", 2001, shrekOrg);
-  dataNode spirit = new dataNode(185, 280, 1, 0, "Spirit: Stallion of the Cimarron", 2002, null);
+  dataNode shrekOrg = new dataNode(640, 250, 1, 1, "Shrek", 2001, null);
+  dataNode shrek = new dataNode(607, 220, 1, 0, "Shrek", 2001, shrekOrg);
+  dataNode spirit = new dataNode(195, 285, 1, 0, "Spirit: Stallion of the Cimarron", 2002, null);
   dataNode sinbadOrg = new dataNode(765, 350, 1, 1, "Sinbad: Legend of the Seven Seas", 2003, null);
   dataNode sinbad = new dataNode(675, 300, 1, 0, "Sinbad: Legend of the Seven Seas", 2003, sinbadOrg);
-  dataNode shrek2Org = new dataNode(620, 225, 1, 1, "Shrek 2", 2004, null);
-  dataNode shrek2 = new dataNode(605, 190, 1, 0, "Shrek 2", 2004, shrek2Org);
+  dataNode shrek2Org = new dataNode(655, 242, 1, 1, "Shrek 2", 2004, null);
+  dataNode shrek2 = new dataNode(609, 212, 1, 0, "Shrek 2", 2004, shrek2Org);
   //shark tale??
-  dataNode mad = new dataNode(800, 550, 1, 0, "Madagascar", 2005, null);
-  dataNode gromit = new dataNode(595, 200, 1, 0, "Wallace and Gromit: The Curse of the Were-Rabbit", 2005, null);
+  dataNode mad = new dataNode(795, 550, 1, 0, "Madagascar", 2005, null);
+  dataNode gromit = new dataNode(599, 200, 1, 0, "Wallace and Gromit: The Curse of the Were-Rabbit", 2005, null);
   dataNode hedge = new dataNode(300, 290, 1, 0, "Over the Hedge", 2006, null);
-  dataNode flushed = new dataNode(600, 203, 1, 0, "Flushed Away", 2006, null);
-  dataNode shrek3Org = new dataNode(633, 238, 1, 1, "Shrek the Third", 2007, null);
-  dataNode shrek3 = new dataNode(600, 190, 1, 0, "Shrek the Third", 2007, shrek3Org);
+  dataNode flushed = new dataNode(602, 208, 1, 0, "Flushed Away", 2006, null);
+  dataNode shrek3Org = new dataNode(666, 238, 1, 1, "Shrek the Third", 2007, null);
+  dataNode shrek3 = new dataNode(602, 190, 1, 0, "Shrek the Third", 2007, shrek3Org);
   dataNode bee = new dataNode(280, 275, 1, 0, "Bee Movie", 2007, null);
   dataNode panda = new dataNode(1010, 325, 1, 0, "Kung Fu Panda", 2008, null);
   dataNode mad2 = new dataNode(670, 400, 1, 0, "Madagascar: Escape 2 Africa", 2008, null);
@@ -180,10 +180,10 @@ ArrayList<dataNode> populate2000s(){
   node2000s.add(monsVSaliens);
     
   //pixar
-  dataNode nemo = new dataNode(1110, 600, 2, 0, "Finding Nemo", 2003, null);
+  dataNode nemo = new dataNode(1025, 600, 2, 0, "Finding Nemo", 2003, null);
   dataNode incred = new dataNode(330, 290, 2, 0, "The Incredibles", 2004, null);
-  dataNode cars = new dataNode(175, 280, 2, 0, "Cars", 2006, null);
-  dataNode rat = new dataNode(610, 245, 2, 0, "Ratatouille", 2007, null);
+  dataNode cars = new dataNode(165, 280, 2, 0, "Cars", 2006, null);
+  dataNode rat = new dataNode(625, 245, 2, 0, "Ratatouille", 2007, null);
   dataNode walle = new dataNode(330, 300, 2, 0, "Wall-E", 2008, null);
   dataNode up = new dataNode(200, 300, 2, 0, "Up", 2009, null);
   //what is monsters inc?
@@ -205,10 +205,10 @@ ArrayList<dataNode> populate1990s(){
   dataNode lionOrg = new dataNode(600, 203, 0, 1, "The Lion King", 1994, null);
   dataNode lion = new dataNode(670, 400, 0, 0, "The Lion King", 1994, lionOrg);
   dataNode pocah = new dataNode(300, 305, 0, 2, "Pocahontas", 1995, null);
-  dataNode hunch = new dataNode(630, 240, 0, 2, "The Hunchback of Notre Dame", 1996, null);
+  dataNode hunch = new dataNode(633, 250, 0, 2, "The Hunchback of Notre Dame", 1996, null);
   dataNode herc = new dataNode(695, 305, 0, 2, "Hercules", 1997, null);
   dataNode mulan = new dataNode(1015, 345, 0, 2, "Mulan", 1998, null);
-  dataNode tarzan = new dataNode(680, 410, 0, 2, "Tarzan", 1999, null);
+  dataNode tarzan = new dataNode(695, 410, 0, 2, "Tarzan", 1999, null);
   //not including fantasia 2000, which was 1999
   node1990s.add(rescDown);
   node1990s.add(beauty);
@@ -223,14 +223,14 @@ ArrayList<dataNode> populate1990s(){
   
   //dreamworks
   dataNode prince = new dataNode(715, 355, 1, 2, "The Prince of Egypt", 1998, null);
-  dataNode antz = new dataNode(300, 290, 1, 0, "Antz", 1998, null);
+  dataNode antz = new dataNode(285, 290, 1, 0, "Antz", 1998, null);
   node1990s.add(prince);
   node1990s.add(antz);
   
   //pixar
   dataNode toy = new dataNode(200, 295, 2, 0, "Toy Story", 1995, null);
   dataNode bug = new dataNode(200, 265, 2, 0, "A Bug's Life", 1998, null);
-  dataNode toy2 = new dataNode(205, 297, 2, 0, "Toy Story 2", 1999, null);
+  dataNode toy2 = new dataNode(190, 297, 2, 0, "Toy Story 2", 1999, null);
   
   node1990s.add(toy);
   node1990s.add(bug);
@@ -244,13 +244,13 @@ ArrayList<dataNode> populate1980s(){
   //disney
   dataNode fox = new dataNode(307, 290, 0, 2, "The Fox and the Hound", 1981, null);
   node1980s.add(fox);
-  dataNode cauldron = new dataNode(605, 200, 0, 2, "The Black Cauldron", 1985, null);
+  dataNode cauldron = new dataNode(605, 222, 0, 2, "The Black Cauldron", 1985, null);
   node1980s.add(cauldron);
-  dataNode mouse = new dataNode(605, 192, 0, 2, "The Great Mouse Detective", 1986, null);
+  dataNode mouse = new dataNode(610, 210, 0, 2, "The Great Mouse Detective", 1986, null);
   node1980s.add(mouse);
-  dataNode oliverOrigin = new dataNode(600, 188, 0, 1, "Oliver & Company", 1988, null);
+  dataNode oliverOrigin = new dataNode(600, 195, 0, 1, "Oliver & Company", 1988, null);
   node1980s.add(oliverOrigin);
-  dataNode oliver = new dataNode(330, 290, 0, 0, "Oliver & Company", 1988, oliverOrigin);
+  dataNode oliver = new dataNode(320, 290, 0, 0, "Oliver & Company", 1988, oliverOrigin);
   node1980s.add(oliver);
   dataNode mermaid = new dataNode(655, 200, 0, 2, "The Little Mermaid", 1989, null);
   node1980s.add(mermaid);
@@ -261,22 +261,22 @@ ArrayList<dataNode> populate1970s(){
    ArrayList<dataNode> node1970s = new ArrayList<dataNode>();
   dataNode cats = new dataNode(623, 245, 0, 2, "The Aristocats", 1970, null);
   node1970s.add(cats);
-  dataNode robin = new dataNode(605, 203, 0, 2, "Robin Hood", 1973, null);
+  dataNode robin = new dataNode(605, 220, 0, 2, "Robin Hood", 1973, null);
   node1970s.add(robin);
-  dataNode winnie = new dataNode(605, 190, 0, 2, "The Many Adventures of Winnie the Pooh", 1977, null);
+  dataNode winnie = new dataNode(605, 205, 0, 2, "The Many Adventures of Winnie the Pooh", 1977, null);
   node1970s.add(winnie);
   dataNode rescuersOrg = new dataNode(595, 187, 0, 1, "The Rescuers", 1977, null);
   node1970s.add(rescuersOrg);
-  dataNode rescuers = new dataNode(330, 296, 0, 0, "The Rescuers", 1977, rescuersOrg);
+  dataNode rescuers = new dataNode(320, 296, 0, 0, "The Rescuers", 1977, rescuersOrg);
   node1970s.add(rescuers);
   return node1970s;
 }
 
 ArrayList<dataNode> populate1960s(){
    ArrayList<dataNode> node1960s = new  ArrayList<dataNode>();
-  dataNode dalma = new dataNode(605, 200, 0, 2, "One Hundred and One Dalmatians", 1961, null);
+  dataNode dalma = new dataNode(605, 202, 0, 2, "One Hundred and One Dalmatians", 1961, null);
   node1960s.add(dalma);
-  dataNode sword = new dataNode(605, 205, 0, 2, "The Sword in the Stone", 1963, null);
+  dataNode sword = new dataNode(605, 218, 0, 2, "The Sword in the Stone", 1963, null);
   node1960s.add(sword);
   dataNode jungle = new dataNode(895, 375, 0, 2, "The Jungle Book", 1967, null);
   node1960s.add(jungle);
@@ -285,11 +285,11 @@ ArrayList<dataNode> populate1960s(){
 
 ArrayList<dataNode> populate1950s(){
    ArrayList<dataNode> node1950s = new  ArrayList<dataNode>();
-  dataNode cind = new dataNode(633, 245, 0, 2, "Cinderella", 1950, null);
+  dataNode cind = new dataNode(640, 245, 0, 2, "Cinderella", 1950, null);
   node1950s.add(cind);
-  dataNode alice = new dataNode(605, 195, 0, 2, "Alice in Wonderland", 1951, null);
+  dataNode alice = new dataNode(605, 205, 0, 2, "Alice in Wonderland", 1951, null);
   node1950s.add(alice);
-  dataNode peter = new dataNode(605, 200, 0, 2, "Peter Pan", 1953, null);
+  dataNode peter = new dataNode(605, 190, 0, 2, "Peter Pan", 1953, null);
   node1950s.add(peter);
   //lady and tramp was a book!
   dataNode lady = new dataNode(270, 305, 0, 2, "Lady and the Tramp", 1955, null);
@@ -302,13 +302,13 @@ ArrayList<dataNode> populate1950s(){
 ArrayList<dataNode> populate1940s(){
    ArrayList<dataNode> node1940s = new  ArrayList<dataNode>();
   //bambi was an austrian book, adapted to america
-  dataNode bambiOrg = new dataNode(640, 200, 0, 1, "Bambi", 1942, null);
+  dataNode bambiOrg = new dataNode(665, 245, 0, 1, "Bambi", 1942, null);
   node1940s.add(bambiOrg);
   dataNode bambi = new dataNode(300, 290, 0, 0, "Bambi", 1942, bambiOrg);
   node1940s.add(bambi);
   dataNode dumbo = new dataNode(305, 315, 0, 2, "Dumbo", 1941, null);
   node1940s.add(dumbo);
-  dataNode pino = new dataNode(680, 275, 0, 2, "Pinocchio", 1940, null);
+  dataNode pino = new dataNode(675, 285, 0, 2, "Pinocchio", 1940, null);
   node1940s.add(pino);
   //war films? fantasia?
   return node1940s;
