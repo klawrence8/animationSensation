@@ -179,16 +179,19 @@ void draw() {
   }else{
   
   image(map, 0, 0);
+  
   //draw scrolling film reel
-  fill(0);
+  fill(190, 190, 255);
   noStroke();
   rect(1195, 0, 200, 700);
   fill(255);
+  
   //scrolling sprockets
   scroll();
   for (int i = 0; i < 240; i++) {
     rect(1198, yPos + sprockets[i], 11, 11, 2);
   }
+  
   if (tens) {
     ArrayList<dataNode> node2010s = populate2010s();
     drawDecade(node2010s);
@@ -248,7 +251,7 @@ void draw() {
   //draw text field at top
   fill(200, 200, 255, 150);
   noStroke();
-  rect(0, 0, 1230, 50);
+  rect(0, 0, 1225, 50);
   //draw slider base bar near bottom
   fill(200, 200, 255, 230);
   rect(315, 640, 610, 10, 50);

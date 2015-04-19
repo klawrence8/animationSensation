@@ -332,7 +332,7 @@ ArrayList<dataNode> populate1930s(){
   return node1930s;
 }
   
-//Load Images here????
+//Load Images here???? eh why not?
 
 void loadImages() {
   p1 = loadImage("p1.png");
