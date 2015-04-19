@@ -8,6 +8,7 @@ class slider{
   float curve;
   float wid;
   float ht;
+  boolean isSelected;
   
   slider(float l, float r, float t, float b, float c, float w, float h){
     left = l;
@@ -17,6 +18,7 @@ class slider{
     curve = c;
     wid = w;
     ht = h; 
+    isSelected = false;
   }
   
   float getLeft(){
@@ -43,4 +45,12 @@ class slider{
   void setRight(float r){
     right = r;
   }
+  void setSelected(boolean b){
+    isSelected = b;
+  }
+  
+  boolean getSelected(){
+    return isSelected;
+  }
+  
 }
