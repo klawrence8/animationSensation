@@ -51,6 +51,10 @@ class dataNode {
   dataNode getOrigin(){
     return origin;
   }
+  
+  PImage getImage() {
+    return image;
+  }
 }
 
 ArrayList<dataNode> populate2010s(){

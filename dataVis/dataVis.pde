@@ -2,7 +2,7 @@ PImage map;
 PImage disneyLogoNode, disneyStoryNode, disneyCharNode;
 PImage dreamworksLogoNode, dreamworksStoryNode, dreamworksCharNode;
 PImage pixarLogoNode, pixarStoryNode, pixarCharNode;
-PImage fs;
+PImage fs30, fs40, fs50, fs60, fs70, fs80, fs90, fs00, fs10;
 
 PImage titleScreen;
 
@@ -14,6 +14,7 @@ boolean title;
 
 int[] sprockets;
 
+int yPos;
 
 ArrayList<dataNode> node2010s;
 ArrayList<dataNode> node2000s;
@@ -54,16 +55,17 @@ void setup() {
 //  pixarStoryNode = loadImage("pixarStory.png");
 //  pixarCharNode = loadImage("pixarChar.png");
 
-//LOAD CHAR IMAGES OMG SO MUCH
+//LOAD CHAR -- has been moved :D
 
   loadImages();
    
 //create sprockets y pos
-  sprockets = new int[30];
-  for (int i = 0; i < 30; i++) {
-    sprockets[i] = i*30;
+  sprockets = new int[240];
+  for (int i = 0; i < 240; i++) {
+    sprockets[i] = i*25;
   }
   
+  yPos = 0;
   bg = 255;
   c = color(0);
   
@@ -177,60 +179,72 @@ void draw() {
   }else{
   
   image(map, 0, 0);
-  
+  //draw scrolling film reel
+  fill(0);
+  noStroke();
+  rect(1195, 0, 200, 700);
+  fill(255);
+  //scrolling sprockets
+  scroll();
+  for (int i = 0; i < 240; i++) {
+    rect(1198, yPos + sprockets[i], 11, 11, 2);
+  }
   if (tens) {
     ArrayList<dataNode> node2010s = populate2010s();
     drawDecade(node2010s);
     drawLinks(node2010s);
+    drawImages(node2010s);
   }
   if (noughties) {
     ArrayList<dataNode> node2000s = populate2000s();
     drawDecade(node2000s);
     drawLinks(node2000s);
+    drawImages(node2000s);
   }//end of 2000 if
   if (ninties) {
     ArrayList<dataNode> node1990s = populate1990s();
     drawDecade(node1990s);
     drawLinks(node1990s);
+    drawImages(node1990s);
   }
   if (eighties) {
     ArrayList<dataNode> node1980s = populate1980s();
     drawDecade(node1980s);
     drawLinks(node1980s);
+    drawImages(node1980s);
   }
   if (seventies) {
     ArrayList<dataNode> node1970s = populate1970s();
     drawDecade(node1970s);
     drawLinks(node1970s);
+    drawImages(node1970s);
   }
   if (sixties) {
     ArrayList<dataNode> node1960s = populate1960s();
     drawDecade(node1960s);
     drawLinks(node1960s);
+    drawImages(node1960s);
   }
   if (fifties) {
     ArrayList<dataNode> node1950s = populate1950s();
     drawDecade(node1950s);
     drawLinks(node1950s);
+    drawImages(node1950s);
   }
   if (forties) {
     ArrayList<dataNode> node1940s = populate1940s();
     drawDecade(node1940s);
     drawLinks(node1940s);
+    drawImages(node1940s);
   }
   if (thirties) {
     ArrayList<dataNode> node1930s = populate1930s();
+    //image(node1930s.get(0).getImage(), 0,0);
     drawDecade(node1930s);
     drawLinks(node1930s);
+    drawImages(node1930s);
   }
   
-  fill(0);
-  noStroke();
-  rect(1230, 0, 150, 700);
-  fill(255);
-  for (int i = 0; i < 30; i++) {
-    rect(1233, sprockets[i], 15, 15, 5);
-  }
   //draw text field at top
   fill(200, 200, 255, 150);
   noStroke();
@@ -261,6 +275,7 @@ void draw() {
   text("2000s", 813.75, 640);
   text("2010s", 880, 640);
   }
+  
 }
 
 void drawDecade(ArrayList<dataNode> list) {
@@ -331,6 +346,15 @@ void drawLinks(ArrayList<dataNode> list){
   noStroke();
 }
 
+void drawImages(ArrayList<dataNode> list) {
+  for(int i = 0; i < list.size(); i++) {
+    dataNode node = list.get(i);
+    if(node.getImage() != null) {
+      image(node.getImage(), 1215, (yPos + 155*i));
+    }
+  }
+}
+
 float getMid(float x1, float x2){
   return((x1+x2)/2.0);
 }
@@ -342,6 +366,16 @@ float getMid(float x1, float x2){
 //      tlButtonX -= 100
 //
 //}
+
+void scroll() {
+  if(overArea(1200, 0, 200, 20)) {
+    yPos--;
+  }
+  if(overArea(1200, 680, 200, 20) && yPos <= 0) {
+    yPos++;
+  }
+}
+
 
 boolean overArea(int x, int y, int width, int height)  {
   if (mouseX >= x && mouseX <= x+width && 
