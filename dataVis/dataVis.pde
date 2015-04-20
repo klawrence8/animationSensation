@@ -460,10 +460,13 @@ void drawLinks(ArrayList<dataNode> list){
 }
 
 void drawImages(ArrayList<dataNode> list) {
+  int j = 0;
   for(int i = 0; i < list.size(); i++) {
     dataNode node = list.get(i);
     if(node.getImage() != null) {
-      image(node.getImage(), 1215, (yPos + 155*i));
+      image(node.getImage(), 1215, (yPos + 155*j));
+      j++;
+      //print("images placed at " + (yPos + 155*j));
     }
   }
 }
