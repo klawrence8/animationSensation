@@ -1,8 +1,8 @@
 PImage map;
-PImage disneyLogoNode, disneyStoryNode, disneyCharNode;
-PImage dreamworksLogoNode, dreamworksStoryNode, dreamworksCharNode;
-PImage pixarLogoNode, pixarStoryNode, pixarCharNode;
-PImage fs30, fs40, fs50, fs60, fs70, fs80, fs90, fs00, fs10;
+PImage disney1, disney2, disney3;
+PImage dreamworks1, dreamworks2, dreamworks3;
+PImage pixar1, pixar2, pixar3;
+PImage window;
 
 PImage titleScreen;
 PImage aboutScreen;
@@ -15,7 +15,7 @@ color magenta2, magenta, lime2, lime, gold;
 boolean thirties, forties, fifties, sixties, seventies, eighties, ninties, noughties, tens;
 boolean thirties2, forties2, fifties2, sixties2, seventies2, eighties2, ninties2, noughties2, tens2;
 
-boolean title, about;
+boolean title, about, info;
 
 int linkColAdjust, originalColAdjust, samePlaceColAdjust;
 int[] sprockets;
@@ -57,7 +57,15 @@ void setup() {
  
   
 //LOAD CHAR -- has been moved :D
-
+  disney1 = loadImage("disney1.png");
+  disney2 = loadImage("disney2.png");
+  disney3 = loadImage("disney3.png");
+  dreamworks1 = loadImage("dreamworks1.png");
+  dreamworks2 = loadImage("dreamworks2.png");
+  dreamworks3 = loadImage("dreamworks3.png");
+  pixar1 = loadImage("pixar1.png");
+  pixar2 = loadImage("pixar2.png");
+  pixar3 = loadImage("pixar3.png");
   loadImages();
    
 //create sprockets y pos
@@ -145,30 +153,36 @@ void mouseClicked(){
     if(overArea(1009, 500, 319, 55)){
       title = false;
       about = true;
+      info = false;
     }
     if(overArea(1009, 588, 319, 55)){
       title = false;
       about = false;
+      info = false;
     }
   }//end of if title mode
   else if(about){
     if(overArea(1009, 500, 319, 55)){
       title = true;
       about = false;
+      info = false;
     }
     if(overArea(1009, 588, 319, 55)){
       title = false;
       about = false;
+      info = false;
     }
   }//end of if about mode
   else{
     if(overArea(50, 455, 215, 40)){
       about = true;
       title = false;
+      info = false;
     }
     if(overArea(50, 410, 200, 58)){
       title = true;
       about = false;
+      info = false;
     }
   }//end of else main mode
 }//end of mouseClicked()
@@ -198,13 +212,20 @@ void draw() {
         noStroke();
         rect(1009, 588, 319, 55);
     }    
+  }else if(info) {
+    fill(255);
+    rect(0,0,2000,2000);
+    image(window, 200,100);
+    if(mousePressed) {
+      info = false;
+    }
   }else{
   
   
   image(map, 0, 0);
   
   //draw scrolling film reel
-  fill(190, 190, 255);
+  fill(0);
   noStroke();
   rect(1195, 0, 200, 700);
   fill(255);
@@ -343,15 +364,15 @@ void draw() {
   fill(lime, originalColAdjust);
   rect(55, 533, 4, 8);
   
-  ellipse(55, 600, 8, 8);
+  image(disney1, 55, 600, 15, 15);
   //center, left, right 
-  triangle(54, 615, 50, 625, 58, 625);
-  rect(50, 635, 8, 8);
+  image(dreamworks1, 54, 615, 15,15);
+  image(pixar1, 50, 635, 15, 15);
   
   stroke(15);
   strokeWeight(1);
   fill(0);
-  textSize(14);
+  textSize(10);
   textAlign(LEFT);
   text("Original Story Only", 70, 540);
   text("Story Location Maintained", 70, 562);
@@ -381,34 +402,47 @@ void drawDecade(ArrayList<dataNode> list, color c) {
   //now draw shapes according to studio
         
         if(list.get(i).getCompany()==0){ //if disney make a circle
-          ellipse(list.get(i).getLong(), list.get(i).getLat(), 8, 8);
-          if(overArea(list.get(i).getLong(), list.get(i).getLat(), 8, 8)) {
-            ellipse(list.get(i).getLong(), list.get(i).getLat(), 15, 15);
+          if(overArea(list.get(i).getLong(), list.get(i).getLat(), 10, 10)) {
+            image(disney1, list.get(i).getLong(), list.get(i).getLat(), 15, 15);
             fill(50,55,50);
             textSize(25);
             text(list.get(i).name(), 615, 35);
+            if (mousePressed) {
+              info = true;
+              window = list.get(i).getWindow();
+            }
+           } else {
+          image(disney1, list.get(i).getLong(), list.get(i).getLat(), 8, 8);
            }
         }//end of if disney
         else if(list.get(i).getCompany()==1){//if dreamworks then triangle
-             triangle(list.get(i).getLong()-5, list.get(i).getLat()+5,
-             list.get(i).getLong(), list.get(i).getLat()-5,
-             list.get(i).getLong()+5, list.get(i).getLat()+5);
-        if(overArea(list.get(i).getLong(), list.get(i).getLat(), 5, 5)) {
-             triangle(list.get(i).getLong()-10, list.get(i).getLat()+10,
-             list.get(i).getLong(), list.get(i).getLat()-10,
-             list.get(i).getLong()+10, list.get(i).getLat()+10);
+             //image(dreamworks1, list.get(i).getLong(), list.get(i).getLat(), 8, 8);
+        if(overArea(list.get(i).getLong(), list.get(i).getLat(), 10, 10)) {
+             image(dreamworks1, list.get(i).getLong(), list.get(i).getLat(), 15, 15);
               fill(50,50,50);
               textSize(25);
               text(list.get(i).name(), 615, 35);
+              if (mousePressed) {
+              info = true;
+              window = list.get(i).getWindow();
+            }
+         } else {
+           image(dreamworks1, list.get(i).getLong(), list.get(i).getLat(), 8, 8);
          }
         }//end of if dreamworks
         else{//if pixar then rectangle
-          rect(list.get(i).getLong(), list.get(i).getLat(), 8, 8);
-          if(overArea(list.get(i).getLong(), list.get(i).getLat(), 8, 8)) {
-            rect(list.get(i).getLong(), list.get(i).getLat(), 15, 15);
+          
+          if(overArea(list.get(i).getLong(), list.get(i).getLat(), 10, 10)) {
+            image(pixar1, list.get(i).getLong(), list.get(i).getLat(), 15, 15);
             fill(50,50,50);
             textSize(25);
             text(list.get(i).name(), 615, 35);
+            if (mousePressed) {
+              info = true;
+              window = list.get(i).getWindow();
+            }
+          } else {
+            image(pixar1, list.get(i).getLong(), list.get(i).getLat(), 8, 8);
           }
       }//end of if pixar
 
