@@ -364,10 +364,10 @@ void draw() {
   fill(lime, originalColAdjust);
   rect(55, 533, 4, 8);
   
-  image(disney1, 55, 600, 15, 15);
+  image(disney1, 50, 595, 15, 15);
   //center, left, right 
-  image(dreamworks1, 54, 615, 15,15);
-  image(pixar1, 50, 635, 15, 15);
+  image(dreamworks1, 52, 614, 15,15);
+  image(pixar1, 52, 635, 15, 15);
   
   stroke(15);
   strokeWeight(1);
@@ -400,10 +400,18 @@ void drawDecade(ArrayList<dataNode> list, color c) {
   }//end of if same place
   
   //now draw shapes according to studio
+  PImage curr;
         
         if(list.get(i).getCompany()==0){ //if disney make a circle
+          if(list.get(i).getType()==0 && list.get(i).getOrigin()==null){
+            curr = disney1;
+          }else if(list.get(i).getType()==0 || list.get(i).getType()==1){
+            curr = disney2;
+          }else{
+            curr = disney3;
+          }
           if(overArea(list.get(i).getLong(), list.get(i).getLat(), 10, 10)) {
-            image(disney1, list.get(i).getLong(), list.get(i).getLat(), 15, 15);
+            image(curr, list.get(i).getLong(), list.get(i).getLat(), 15, 15);
             fill(50,55,50);
             textSize(25);
             text(list.get(i).name(), 615, 35);
@@ -412,13 +420,20 @@ void drawDecade(ArrayList<dataNode> list, color c) {
               window = list.get(i).getWindow();
             }
            } else {
-          image(disney1, list.get(i).getLong(), list.get(i).getLat(), 8, 8);
+          image(curr, list.get(i).getLong(), list.get(i).getLat(), 8, 8);
            }
         }//end of if disney
         else if(list.get(i).getCompany()==1){//if dreamworks then triangle
              //image(dreamworks1, list.get(i).getLong(), list.get(i).getLat(), 8, 8);
+               if(list.get(i).getType()==0 && list.get(i).getOrigin()==null){
+            curr = dreamworks1;
+          }else if(list.get(i).getType()==0 || list.get(i).getType()==1){
+            curr = dreamworks2;
+          }else{
+            curr = dreamworks3;
+          }
         if(overArea(list.get(i).getLong(), list.get(i).getLat(), 10, 10)) {
-             image(dreamworks1, list.get(i).getLong(), list.get(i).getLat(), 15, 15);
+             image(curr, list.get(i).getLong(), list.get(i).getLat(), 15, 15);
               fill(50,50,50);
               textSize(25);
               text(list.get(i).name(), 615, 35);
@@ -427,11 +442,17 @@ void drawDecade(ArrayList<dataNode> list, color c) {
               window = list.get(i).getWindow();
             }
          } else {
-           image(dreamworks1, list.get(i).getLong(), list.get(i).getLat(), 8, 8);
+           image(curr, list.get(i).getLong(), list.get(i).getLat(), 8, 8);
          }
         }//end of if dreamworks
         else{//if pixar then rectangle
-          
+            if(list.get(i).getType()==0 && list.get(i).getOrigin()==null){
+            curr = pixar1;
+          }else if(list.get(i).getType()==0 || list.get(i).getType()==1){
+            curr = pixar2;
+          }else{
+            curr = pixar3;
+          }
           if(overArea(list.get(i).getLong(), list.get(i).getLat(), 10, 10)) {
             image(pixar1, list.get(i).getLong(), list.get(i).getLat(), 15, 15);
             fill(50,50,50);
