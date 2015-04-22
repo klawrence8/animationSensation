@@ -5,6 +5,9 @@ PImage pixarLogoNode, pixarStoryNode, pixarCharNode;
 PImage fs30, fs40, fs50, fs60, fs70, fs80, fs90, fs00, fs10;
 
 PImage titleScreen;
+PImage aboutScreen;
+PImage aboutIcon;
+PImage titleIcon;
 
 color bg;
 color c;
@@ -12,7 +15,7 @@ color magenta2, magenta, lime2, lime, gold;
 boolean thirties, forties, fifties, sixties, seventies, eighties, ninties, noughties, tens;
 boolean thirties2, forties2, fifties2, sixties2, seventies2, eighties2, ninties2, noughties2, tens2;
 
-boolean title;
+boolean title, about;
 
 int linkColAdjust, originalColAdjust, samePlaceColAdjust;
 int[] sprockets;
@@ -47,7 +50,11 @@ void setup() {
   textAlign(CENTER, CENTER);
   title = true;
   titleScreen = loadImage("title.png");
+  aboutScreen = loadImage("about.png");
+  aboutIcon = loadImage("aboutIcon.png");
+  titleIcon = loadImage("titleIcon.png");
   map = loadImage("map.jpg");
+ 
   
 //LOAD CHAR -- has been moved :D
 
@@ -67,7 +74,7 @@ void setup() {
   lime2 = color(103, 152, 0);
   lime = color(14, 81, 0);
   gold = color(162, 120, 0);
-  slide = new slider(335, 335+50, 630, 630+30, 10, 50, 30);
+  slide = new slider(330, 330+50, 630, 630+30, 10, 50, 30);
  
   
   linkColAdjust = 255;
@@ -78,18 +85,12 @@ void setup() {
 }
 
 
-void keyPressed(){
-  if(key==CODED){
-    if(keyCode==RIGHT){
-      title = false;
-    }
-  }
-}
+
 void moveSlider(slider s){
 
   float newLeft = s.getLeft() + (mouseX-pmouseX);
       float newRight = s.getRight() + (mouseX-pmouseX);
-      if(newLeft>=335 && newRight<925){
+      if(newLeft>=330 && newRight<930){
         s.setLeft(newLeft);
         s.setRight(newRight);
       }
@@ -132,17 +133,73 @@ void mouseDragged(){
     if(mid >= 798 && mid < 863){
       noughties = true;
     }else{ noughties = false;}
-    if(mid >=863 && mid <= 925) {
+    if(mid >=863 && mid <= 930) {
       tens = true;
     } else{ tens = false;}
        
   
 }//end of if mouse dragged
 
+void mouseClicked(){
+  if(title){
+    if(overArea(1009, 500, 319, 55)){
+      title = false;
+      about = true;
+    }
+    if(overArea(1009, 588, 319, 55)){
+      title = false;
+      about = false;
+    }
+  }//end of if title mode
+  else if(about){
+    if(overArea(1009, 500, 319, 55)){
+      title = true;
+      about = false;
+    }
+    if(overArea(1009, 588, 319, 55)){
+      title = false;
+      about = false;
+    }
+  }//end of if about mode
+  else{
+    if(overArea(50, 455, 215, 40)){
+      about = true;
+      title = false;
+    }
+    if(overArea(50, 410, 200, 58)){
+      title = true;
+      about = false;
+    }
+  }//end of else main mode
+}//end of mouseClicked()
+
 void draw() {
   if(title){
     image(titleScreen, 0, 0);
+    if(overArea(1009, 500, 319, 55)){
+      fill(200, 200, 255, 150);
+      noStroke();
+      rect(1009, 500, 319, 55);
+    }
+    if(overArea(1009, 588, 319, 55)){
+      fill(200, 200, 255, 150);
+      noStroke();
+      rect(1009, 588, 319, 55);
+    }    
+  }else if(about){
+    image(aboutScreen, 0, 0);
+    if(overArea(1009, 500, 319, 55)){
+      fill(200, 200, 255, 150);
+      noStroke();
+      rect(1009, 500, 319, 55);
+    }
+     if(overArea(1009, 588, 319, 55)){
+        fill(200, 200, 255, 150);
+        noStroke();
+        rect(1009, 588, 319, 55);
+    }    
   }else{
+  
   
   image(map, 0, 0);
   
@@ -225,11 +282,12 @@ void draw() {
   //draw text field at top
   fill(200, 200, 255, 150);
   noStroke();
-  rect(0, 0, 1200, 50);
+  rect(0, 0, 1195, 50);
   
+ 
   //draw slider base bar near bottom
   fill(200, 200, 255, 230);
-  rect(335, 640, 610, 10, 50);
+  rect(330, 640, 595, 10, 50);
   
 //draw sliders
   strokeWeight(1.5);
@@ -238,11 +296,20 @@ void draw() {
   rect(slide.getLeft(), slide.getTop(), slide.getWidth(), slide.getHeight());
   
   //draw about button
-  rect(50, 435, 100, 30);
-  textSize(20);
   fill(255);
-  textAlign(LEFT);
-  text("ABOUT", 65, 458);
+  image(aboutIcon, 50, 470);
+  if(overArea(50, 470, 200, 40)){
+      fill(255,255,255, 100);
+      noStroke();
+      rect(50, 470, 200, 40);
+  }
+    //draw title icon in top left corner
+  image(titleIcon, 50, 410);
+  if(overArea(50, 410, 200, 58)){
+    fill(255, 255, 255, 100);
+    noStroke();
+    rect(50, 410, 200, 58);
+  }
   
   //date text
   textSize(18);
@@ -262,38 +329,38 @@ void draw() {
   //label colors/node type
   noStroke();
   fill(magenta, linkColAdjust);
-  rect(50, 550, 4, 8);
+  rect(50, 575, 4, 8);
   fill(lime, linkColAdjust);
-  rect(55, 553, 4, 8);
+  rect(55, 578, 4, 8);
   
   fill(magenta, samePlaceColAdjust);
-  rect(50, 520, 4, 8);
+  rect(50, 552, 4, 8);
   fill(lime, samePlaceColAdjust);
-  rect(55, 523, 4, 8);
+  rect(55, 555, 4, 8);
   
   fill(magenta, originalColAdjust);
-  rect(50, 490, 4, 8);
+  rect(50, 530, 4, 8);
   fill(lime, originalColAdjust);
-  rect(55, 493, 4, 8);
+  rect(55, 533, 4, 8);
   
-  ellipse(55, 585, 8, 8);
+  ellipse(55, 600, 8, 8);
   //center, left, right 
-  triangle(54, 600, 50, 610, 58, 610);
-  rect(50, 620, 8, 8);
+  triangle(54, 615, 50, 625, 58, 625);
+  rect(50, 635, 8, 8);
   
   stroke(15);
   strokeWeight(1);
   fill(0);
   textSize(14);
   textAlign(LEFT);
-  text("Original Story Only", 70, 505);
-  text("Story Location Maintained", 70, 532);
-  text("Relocated Story", 70, 560);
-  text("Walt Disney Studios",70, 590);
-  text("Dreamworks Animation Studios", 70, 610);
-  text("Pixar Animation Studios", 70, 630);
+  text("Original Story Only", 70, 540);
+  text("Story Location Maintained", 70, 562);
+  text("Relocated Story", 70, 585);
+  text("Walt Disney Studios",70, 605);
+  text("Dreamworks Animation Studios", 70, 625);
+  text("Pixar Animation Studios", 70, 645);
   textAlign(CENTER);
-  }
+  }//end of else if not title or about
   
 }//end of draw
 
