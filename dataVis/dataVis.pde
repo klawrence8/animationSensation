@@ -67,8 +67,8 @@ void setup() {
   lime2 = color(103, 152, 0);
   lime = color(14, 81, 0);
   gold = color(162, 120, 0);
-  slide = new slider(319, 319+50, 630, 630+30, 10, 50, 30);
-  slide2 = new slider(870, 870+50, 630, 630+30, 10, 50, 30);
+  slide = new slider(335, 335+50, 630, 630+30, 10, 50, 30);
+ 
   
   linkColAdjust = 255;
   originalColAdjust = 80;
@@ -86,100 +86,56 @@ void keyPressed(){
   }
 }
 void moveSlider(slider s){
-  if(s.getSelected()){
+
   float newLeft = s.getLeft() + (mouseX-pmouseX);
       float newRight = s.getRight() + (mouseX-pmouseX);
-      if(newLeft>318 && newRight<920){
+      if(newLeft>=335 && newRight<925){
         s.setLeft(newLeft);
         s.setRight(newRight);
       }
-  }
+  
 }
 
 void mouseDragged(){
   //drag slider
   if(mouseX > slide.getLeft() && mouseX < slide.getRight() && mouseY > slide.getTop() && mouseY < slide.getBot()){
-    if(mousePressed && mouseButton == LEFT){
-      slide.setSelected(true);
-      slide2.setSelected(false);
-    }else{
-      slide.setSelected(false);
+    if(mousePressed){
+      moveSlider(slide);
     }
   }
-   if(mouseX > slide2.getLeft() && mouseX < slide2.getRight() && mouseY > slide2.getTop() && mouseY < slide2.getBot()){
-      if(mousePressed && mouseButton == RIGHT){
-        slide2.setSelected(true);
-        slide.setSelected(false);
-      }
-      else{
-        slide2.setSelected(false);
-       }
-   }
-   
-   moveSlider(slide); moveSlider(slide2);
     //switch decades according to location of slider
     //okay these are definitely not exact but yknow what it works
     
     float left = slide.getLeft(); float right = slide.getRight();
-    float left2 = slide2.getLeft(); float right2 = slide2.getRight();
-    if(left >= 318 && right < 380){ 
+    float mid = getMid(left, right);
+    if(mid >= 335 && mid < 405){ 
       thirties = true;
     }else{ thirties = false;}
-    if(left >= 380 && right < 451){
+    if(mid >= 405 && mid < 473){
       forties = true;
     }else{ forties = false;}
-    if(left >= 451 && right < 517.5){
+    if(mid >= 473 && mid < 538){
       fifties = true;
     }else{ fifties = false;}
-    if(left >= 517.5 && right < 584){
+    if(mid >= 538 && mid < 603){
       sixties = true;
     }else{ sixties = false;}
-    if(left >=584 && right < 650.5){
+    if(mid >=603 && mid < 668){
       seventies = true;
     }else{ seventies = false;}
-    if(left >=650.5 && right < 717){
+    if(mid >=668 && mid < 733){
       eighties = true;
     }else{ eighties = false;}
-    if(left >=717 && right < 783.5){
+    if(mid >=733 && mid < 798){
       ninties =true;
     }else{ ninties = false;}
-    if(left >= 783.5 && right < 850){
+    if(mid >= 798 && mid < 863){
       noughties = true;
     }else{ noughties = false;}
-    if(left >=850 && right <= 920) {
+    if(mid >=863 && mid <= 925) {
       tens = true;
     } else{ tens = false;}
-    
-    //for second slider set
-     if(left2 >= 318 && right2 < 380){ 
-      thirties2 = true;
-    }else{ thirties2 = false;}
-    if(left2 >= 380 && right2 < 451){
-      forties2 = true;
-    }else{ forties2 = false;}
-    if(left2 >= 451 && right2 < 517.5){
-      fifties2 = true;
-    }else{ fifties2 = false;}
-    if(left2 >= 517.5 && right2 < 584){
-      sixties2 = true;
-    }else{ sixties2 = false;}
-    if(left2 >=584 && right2 < 650.5){
-      seventies2 = true;
-    }else{ seventies2 = false;}
-    if(left2 >=650.5 && right2 < 717){
-      eighties2 = true;
-    }else{ eighties2 = false;}
-    if(left2 >=717 && right2 < 783.5){
-      ninties2 =true;
-    }else{ ninties2 = false;}
-    if(left2 >= 783.5 && right2 < 850){
-      noughties2 = true;
-    }else{ noughties2 = false;}
-    if(left2 >=850 && right2 <= 920) {
-      tens2 = true;
-    } else{ tens2 = false;}
-    
-    
+       
   
 }//end of if mouse dragged
 
@@ -208,125 +164,85 @@ void draw() {
     drawLinks(node2010s);
     drawImages(node2010s);
   }
-  if(tens2){
-    ArrayList<dataNode> node2010s = populate2010s();
-    drawDecade(node2010s, lime);
-    drawLinks(node2010s);
-    drawImages(node2010s);
-  }
+
   if (noughties) {
     ArrayList<dataNode> node2000s = populate2000s();
     drawDecade(node2000s, magenta);
     drawLinks(node2000s);
     drawImages(node2000s);
   }
-   if (noughties2) {
-    ArrayList<dataNode> node2000s = populate2000s();
-    drawDecade(node2000s, lime);
-    drawLinks(node2000s);
-    drawImages(node2000s);
-  }
+   
   if (ninties) {
     ArrayList<dataNode> node1990s = populate1990s();
     drawDecade(node1990s, magenta);
     drawLinks(node1990s);
     drawImages(node1990s);
   }
-   if (ninties2) {
-    ArrayList<dataNode> node1990s = populate1990s();
-    drawDecade(node1990s, lime);
-    drawLinks(node1990s);
-    drawImages(node1990s);
-  }
+ 
   if (eighties) {
     ArrayList<dataNode> node1980s = populate1980s();
     drawDecade(node1980s, magenta);
     drawLinks(node1980s);
     drawImages(node1980s);
   }
-   if (eighties2) {
-    ArrayList<dataNode> node1980s = populate1980s();
-    drawDecade(node1980s, lime);
-    drawLinks(node1980s);
-    drawImages(node1980s);
-  }
+ 
   if (seventies) {
     ArrayList<dataNode> node1970s = populate1970s();
     drawDecade(node1970s, magenta);
     drawLinks(node1970s);
     drawImages(node1970s);
   }
-  if (seventies2) {
-    ArrayList<dataNode> node1970s = populate1970s();
-    drawDecade(node1970s, lime);
-    drawLinks(node1970s);
-    drawImages(node1970s);
-  }
+ 
   if (sixties) {
     ArrayList<dataNode> node1960s = populate1960s();
     drawDecade(node1960s, magenta);
     drawLinks(node1960s);
     drawImages(node1960s);
   }
-   if (sixties2) {
-    ArrayList<dataNode> node1960s = populate1960s();
-    drawDecade(node1960s, lime);
-    drawLinks(node1960s);
-    drawImages(node1960s);
-  }
+ 
   if (fifties) {
     ArrayList<dataNode> node1950s = populate1950s();
     drawDecade(node1950s, magenta);
     drawLinks(node1950s);
     drawImages(node1950s);
   }
-    if (fifties2) {
-    ArrayList<dataNode> node1950s = populate1950s();
-    drawDecade(node1950s, lime);
-    drawLinks(node1950s);
-    drawImages(node1950s);
-  }
+   
   if (forties) {
     ArrayList<dataNode> node1940s = populate1940s();
     drawDecade(node1940s, magenta);
     drawLinks(node1940s);
     drawImages(node1940s);
   }
-    if (forties2) {
-    ArrayList<dataNode> node1940s = populate1940s();
-    drawDecade(node1940s, lime);
-    drawLinks(node1940s);
-    drawImages(node1940s);
-  }
+  
   if (thirties) {
     ArrayList<dataNode> node1930s = populate1930s();
     drawDecade(node1930s, magenta);
     drawLinks(node1930s);
     drawImages(node1930s);
   }
-    if (thirties2) {
-    ArrayList<dataNode> node1930s = populate1930s();
-    drawDecade(node1930s, lime);
-    drawLinks(node1930s);
-    drawImages(node1930s);
-  }
+ 
   
   //draw text field at top
   fill(200, 200, 255, 150);
   noStroke();
   rect(0, 0, 1200, 50);
+  
   //draw slider base bar near bottom
   fill(200, 200, 255, 230);
-  rect(315, 640, 610, 10, 50);
+  rect(335, 640, 610, 10, 50);
   
 //draw sliders
   strokeWeight(1.5);
-  fill(magenta2);
+  fill(200, 200,255, 200);
   stroke(255);
   rect(slide.getLeft(), slide.getTop(), slide.getWidth(), slide.getHeight());
-  fill(lime2);
-  stroke(255);
-  rect(slide2.getLeft(), slide2.getTop(), slide2.getWidth(), slide2.getHeight());
+  
+  //draw about button
+  rect(50, 435, 100, 30);
+  textSize(20);
+  fill(255);
+  textAlign(LEFT);
+  text("ABOUT", 65, 458);
   
   //date text
   textSize(18);
@@ -341,7 +257,7 @@ void draw() {
   text("2000s", 813.75, 650);
   text("2010s", 880, 650);
   
-  //key
+  //DRAW THE KEY
 
   //label colors/node type
   noStroke();
@@ -368,6 +284,7 @@ void draw() {
   stroke(15);
   strokeWeight(1);
   fill(0);
+  textSize(14);
   textAlign(LEFT);
   text("Original Story Only", 70, 505);
   text("Story Location Maintained", 70, 532);
@@ -485,10 +402,18 @@ float getMid(float x1, float x2){
 
 void scroll() {
   if(overArea(1200, 0, 200, 20)) {
-    yPos--;
+    if(mousePressed){
+      yPos-=5;
+    }else{
+      yPos--;
+    }
   }
   if(overArea(1200, 680, 200, 20) && yPos <= 0) {
+    if(mousePressed){
+      yPos+=5;
+    }else{
     yPos++;
+    }
   }
 }
 
