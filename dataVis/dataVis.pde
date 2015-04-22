@@ -367,7 +367,7 @@ void draw() {
   image(disney1, 50, 595, 15, 15);
   //center, left, right 
   image(dreamworks1, 52, 614, 15,15);
-  image(pixar1, 52, 635, 15, 15);
+  image(pixar1, 52, 635, 10, 15);
   
   stroke(15);
   strokeWeight(1);
@@ -454,7 +454,7 @@ void drawDecade(ArrayList<dataNode> list, color c) {
             curr = pixar3;
           }
           if(overArea(list.get(i).getLong(), list.get(i).getLat(), 10, 10)) {
-            image(pixar1, list.get(i).getLong(), list.get(i).getLat(), 15, 15);
+            image(pixar1, list.get(i).getLong(), list.get(i).getLat(), 10, 15);
             fill(50,50,50);
             textSize(25);
             text(list.get(i).name(), 615, 35);
@@ -463,7 +463,7 @@ void drawDecade(ArrayList<dataNode> list, color c) {
               window = list.get(i).getWindow();
             }
           } else {
-            image(pixar1, list.get(i).getLong(), list.get(i).getLat(), 8, 8);
+            image(pixar1, list.get(i).getLong(), list.get(i).getLat(), 4, 8);
           }
       }//end of if pixar
 
