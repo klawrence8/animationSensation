@@ -2,7 +2,7 @@ PImage map;
 PImage disney1, disney2, disney3;
 PImage dreamworks1, dreamworks2, dreamworks3;
 PImage pixar1, pixar2, pixar3;
-PImage window;
+PImage window, sinatra;
 
 PImage titleScreen;
 PImage aboutScreen;
@@ -66,6 +66,7 @@ void setup() {
   pixar1 = loadImage("pixar1.png");
   pixar2 = loadImage("pixar2.png");
   pixar3 = loadImage("pixar3.png");
+  sinatra = loadImage("sinatra.png");
   loadImages();
    
 //create sprockets y pos
@@ -468,6 +469,10 @@ void drawDecade(ArrayList<dataNode> list, color c) {
       }//end of if pixar
 
   }//end of for loop
+  if (overArea(328, 295, 5, 5) && mousePressed) {
+    window = sinatra;
+    info = true;
+  }
 }//end of draw decade method
 
 void drawLinks(ArrayList<dataNode> list){
